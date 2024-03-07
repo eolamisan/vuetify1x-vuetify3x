@@ -1,0 +1,30 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/vuetify",
+      "**/vuetify/**",
+      "**/vue",
+      "**/vue/**"
+    ]
+  },
+  "scripts": {
+    "kill-ports": "kill-port --port 11443,11001,11002",
+    "start": "npm run kill-ports && concurrently \"wsrun --parallel start\""    
+  },
+  "resolutions": {
+    "webpack": "^5.82.1",
+    "copy-webpack-plugin": "^9.0.1"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "kill-port": "^1.6.1",
+    "wsrun": "^5.2.0",
+    "concurrently": "8.0.1"
+  }
+}
